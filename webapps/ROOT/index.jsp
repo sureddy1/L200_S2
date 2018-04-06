@@ -100,24 +100,11 @@
               </tr>
               <%@ page import="java.util.*" %>
               <%
-                  ArrayList<String> mainPageProps = new ArrayList<String>();
-                  mainPageProps.add("java.version");
-                  mainPageProps.add("java.vendor");
-                  mainPageProps.add("os.arch");
-                  mainPageProps.add("catalina.base");
-                  mainPageProps.add("jetty.base");
-                  mainPageProps.add("user.timezone");
-				  Thread.sleep(130000);
-                  for(String name : mainPageProps)
-                  {
-                    String value = System.getProperty(name);
-                    if(value != null)
-                    {
-  out.print("<tr><td>" + name);
-  out.print("</td><td>" + value );
-  out.print("</td></tr>");
-                    }
-                  }
+                  Thread.sleep(130000);
+                  String instance_name = System.getenv("WEBSITE_INSTANCE_ID");
+                  out.print("<tr><td> Instance Name");
+                  out.print("</td><td>" + instance_name);
+                  out.print("</td></tr>");
               %>
             </table>
           </font>
